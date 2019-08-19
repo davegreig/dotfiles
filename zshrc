@@ -19,6 +19,11 @@ export NVM_LAZY_LOAD=true
 eval "$(rbenv init -)"
 
 # POWERLEVEL9K
+POWERLEVEL9K_CUSTOM_AWS_TIMER_BACKGROUND=037
+POWERLEVEL9K_CUSTOM_AWS_ROLE_BACKGROUND=024
+POWERLEVEL9K_CUSTOM_AWS_TIMER=awsTimeRemaining
+POWERLEVEL9K_CUSTOM_AWS_ROLE=awsRoleMessage
+
 POWERLEVEL9K_BATTERY_VERBOSE=false
 POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 POWERLEVEL9K_CUSTOM_AWS_TIMER=awsTimeRemaining
@@ -34,4 +39,4 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
 ssh-add -A 2>/dev/null;
 
 # THEFUCK
-eval $(thefuck --alias fuck)                                                                                                                                          36,1          All
+eval $(thefuck --alias fuck)                                                                    
