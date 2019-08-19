@@ -13,16 +13,19 @@ brew install bash
 
 ## ZSH
 brew install zsh zsh-completions
-
 chsh -s /bin/zsh
+## Install oh-my-zsh 
+This is for the benefit of not needing to manually set opts for everything.
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
 ### Powerlevel9k
 brew tap sambadevi/powerlevel9k
 brew install powerlevel9k
 echo "source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme" >> ~/.zshrc
 
-brew install awscli
-brew install bat
 
 ## macOS
 See https://github.com/mathiasbynens/dotfiles/blob/master/.macos
@@ -91,13 +94,18 @@ chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
 ```
 
+## Homebrew packages
+brew install awscli
+brew install bat
 brew install shellcheck
 brew install jq
-brew install nvm
 brew install sbt
 brew install tree
 brew install ammonite-repl
 brew install vim
+brew install rbenv 
+brew install elm
+brew install elm-format
 brew cask install brave
 brew cask install google-chrome
 brew cask install intellij-idea-ce
@@ -107,3 +115,20 @@ brew cask install tableplus
 brew cask install typora
 brew cask install visual-studio-code
 brew cask install whatsapp
+
+## nvm
+Install nvm via [plugin](https://github.com/lukechilds/zsh-nvm) to allow for lazy loading.
+git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
+```shell
+# add this to ~/.zshrc
+source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+export NVM_LAZY_LOAD=true
+```
+
+
+## Install fonts
+```shell
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+brew cask install font-hack-nerd-font-mono
+```
