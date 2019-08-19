@@ -1,9 +1,30 @@
 #! /bin/bash
-HOMEBREW=$(command -v brew)
 
+# 1. Install Homebrew
 if ! [ -x "$(command -v brew)" ]; then
   echo -e "Downloading and installing Homebrew 🍺"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# 2. Install all the brews
+./brewlist.sh
 
+# 3. Set up zshrc file
+echo -e "\n🗄 Copying across zshrc file and dependencies..."
+cp ./zshrc ~/.zshrc
+mkdir ~/.dotfiles
+cp functions.zsh ~/.dotifles/functions.zsh
+cp ./aliases.sh ~/.dotfiles/aliases.zsh
+cp ./git ~/.dotfiles/git.zsh
+
+# 4. Set up ZSH
+if ! [ -x $ZSH_VERSION ]; then
+  echo -e "\nSetting shell to ZSH... \n🔐 You will need to input your password\n"
+  chsh -s /bin/zsh
+fi
+
+# 5. Set up ZSH options
+./setopt.sh
+
+# 5. Setup MacOS preferences
+./macos.sh

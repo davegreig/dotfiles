@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Taken from https://github.com/zanshin/dotfiles/blob/master/zsh/zshrc
 # ===== Basics
 setopt no_beep # don't beep on error
