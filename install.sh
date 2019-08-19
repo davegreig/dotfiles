@@ -28,3 +28,7 @@ fi
 
 # 5. Setup MacOS preferences
 ./macos.sh
+
+#6. Set up iTerm2
+echo -e "\nCopying across iTerm2 Preferences...\n"
+cp itermProfile.json ~/Library/Application Support/iTerm2/DynamicProfiles
