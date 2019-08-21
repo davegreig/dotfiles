@@ -31,7 +31,7 @@ fi
 
 #6. Set up iTerm2
 echo -e "\nCopying across iTerm2 Preferences...\n"
-cp itermProfile.json ~/Library/Application Support/iTerm2/DynamicProfiles
+cp iTerm/itermProfile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles
 
 #7. AWS Timer
 git clone git@git.realestate.com.au:dave-greig/aws-timer.git ~/.aws-timer
