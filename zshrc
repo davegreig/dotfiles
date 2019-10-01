@@ -4,9 +4,15 @@ source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 source ~/.dotfiles/aliases.zsh
 source ~/.dotfiles/git.zsh
 source ~/.dotfiles/functions.zsh
+source ~/.dotfiles/setopt.zsh
 
-# ZSH OPTIONS
+# History file configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
 
+# ZSH CONFIG
+export LC_ALL=en_US.UTF-8
 
 # AWS
 source ~/.aws-timer/timer.sh

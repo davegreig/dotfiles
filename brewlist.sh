@@ -25,6 +25,7 @@ brew install ammonite-repl
 echo -e "\n💾 Install common applications...\n"
 brew cask install brave-browser
 brew cask install google-chrome
+brew cask install firefox
 brew cask install intellij-idea-ce
 brew cask install java
 brew cask install spotify
@@ -32,6 +33,9 @@ brew cask install tableplus
 brew cask install typora
 brew cask install visual-studio-code
 brew cask install whatsapp
+brew cask install slack
+brew cask install shiftit
+brew cask install aerial
 
 echo -e "\n🖋 Install fancy fonts...\n"
 brew tap homebrew/cask-fonts

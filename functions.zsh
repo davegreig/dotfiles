@@ -48,3 +48,16 @@ function myip() {
   ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
   ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
 }
+
+function webserver() {
+  local SRC="$1"
+  if [ -z "$SRC" ]
+  then
+    echo -e "Starting webserver for current directory...\n"
+    $(serve)
+  else
+    echo -e "Starting webserver. Content from ${SRC} will be served\n"
+    $(cd $SRC && serve)
+  fi
+}
+# TODO: Make it easier to interrupt server and return back to previous working directory
