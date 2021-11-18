@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# 0. Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # 1. Install Homebrew
 if ! [ -x "$(command -v brew)" ]; then
   echo -e "Downloading and installing Homebrew 🍺"
@@ -7,34 +10,19 @@ if ! [ -x "$(command -v brew)" ]; then
 fi
 
 # 2. Install all the brews
-./brewlist.sh
+echo -e "\n🍻 Update Homebrew settings...\n"
+brew analytics off
+brew install $(<brew-list)
+brew install --cash $(<brew-cask-list)
 
-# 3. Set up zshrc file
-echo -e "\n🗄 Copying across zshrc file and dependencies..."
-cp ./zshrc ~/.zshrc
-mkdir ~/.dotfiles
-cp functions.zsh ~/.dotifles/functions.zsh
-cp ./aliases.sh ~/.dotfiles/aliases.zsh
-cp ./git ~/.dotfiles/git.zsh
+# 3. Install Powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+## Manual step - set the theme
+```Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.```
 
-# 4. Set up ZSH
-if ! [ -x $ZSH_VERSION ]; then
-  echo -e "\nSetting shell to ZSH... \n🔐 You will need to input your password\n"
-  chsh -s /bin/zsh
-fi
-
-# 5. Set up ZSH options
-./setopt.sh
-
-# 5. Setup MacOS preferences
+# 4. Setup MacOS preferences
 ./macos.sh
 
-#6. Set up iTerm2
+#5. Set up iTerm2
 echo -e "\nCopying across iTerm2 Preferences...\n"
 cp iTerm/itermProfile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles
-
-#7. AWS Timer
-git clone git@github.com:roadwig/aws-timer.git ~/.aws-timer
-
-#8. NVM plugin
-git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
